@@ -12,6 +12,7 @@ export class App {
   protected readonly title = signal('cbre_angular_eds');
   navItems = [
     { label: 'Home', link: '/', icon: 'home' },
+    { label: 'Users', link: '/users', icon: 'people' },
     { label: 'About', link: '/about', icon: 'info' },
     {
       label: 'Contact',
