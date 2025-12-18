@@ -48,5 +48,8 @@ export class App {
     if (event?.triggerItem?.link === '/users') {
       this.router.navigate([event?.triggerItem?.link]);
     }
+    else { 
+      this.router.navigate(['/']);
+    }
   }
 }
