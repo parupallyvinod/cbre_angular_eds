@@ -1,4 +1,31 @@
-<emerald-side-navigation [header]="headerRef" [items]="navItems"></emerald-side-navigation>
+<div style="display: flex; min-height: 100vh; background: #ffffff; padding: 5px">
+  <div style="width: 250px">
+    <emerald-side-navigation [header]="headerRef" [items]="navItems"></emerald-side-navigation>
+  </div>
+  <div style="padding: 2rem; max-width: 900px; margin: 0 auto; color: #163a2e">
+    <section
+      style="border: 1px solid #e6efe9; background: #f7fbf8; padding: 1.25rem; border-radius: 6px"
+    >
+      <h2 style="margin-top: 0; color: #0b2b1f">Welcome — CBRE Angular EDS Template</h2>
+      <p style="margin: 0.5rem 0 1rem 0">
+        This project is a starter template for developers working with the CBRE Angular + Emerald
+        design system.
+      </p>
+      <ul>
+        <li><strong>Run locally:</strong> <code>npm install</code> then <code>npm start</code>.</li>
+        <li><strong>Test:</strong> <code>npm test</code>.</li>
+        <li>
+          <strong>Lint / Build:</strong> <code>npm run build</code> or use Angular CLI commands.
+        </li>
+      </ul>
+      <p style="margin: 0.5rem 0 0 0">
+        See the <code>README.md</code> for project-specific notes and environment variables (e.g.
+        `.npmrc` tokens).
+      </p>
+    </section>
+  </div>
+</div>
+
 <ng-template #headerRef>
   <div
     style="
