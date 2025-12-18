@@ -23,12 +23,15 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "./node_modules/@emerald/style/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["node_modules/@emerald/style/_index.scss", "src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -80,9 +83,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }
