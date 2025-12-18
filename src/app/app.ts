@@ -46,7 +46,7 @@ export class App {
   onNavigationClick(event: any) {
     console.log('onNavigationClick: ', event);
     if (event?.triggerItem?.link === '/users') {
-      this.router.navigation([event?.triggerItem?.link]);
+      this.router.navigate([event?.triggerItem?.link]);
     }
   }
 }
