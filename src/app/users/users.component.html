@@ -45,46 +45,13 @@
       </button>
     </div>
 
-    <div class="table-wrapper">
-      <table class="users-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Department</th>
-            <th>Status</th>
-            <th>Join Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{ user.id }}</td>
-            <td class="user-name">{{ user.name }}</td>
-            <td class="user-email">{{ user.email }}</td>
-            <td>{{ user.role }}</td>
-            <td>{{ user.department }}</td>
-            <td>
-              <span class="status-badge" [class.active]="user.status === 'Active'" [class.inactive]="user.status === 'Inactive'">
-                {{ user.status }}
-              </span>
-            </td>
-            <td>{{ user.joinDate }}</td>
-            <td>
-              <div class="action-buttons">
-                <button class="action-btn edit" title="Edit">
-                  <span class="material-icons">edit</span>
-                </button>
-                <button class="action-btn delete" title="Delete">
-                  <span class="material-icons">delete</span>
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <emerald-datatable-v2
+      [columnDefs]="columnDefs"
+      [rowData]="users"
+      [paginationParams]="paginationParams"
+      [allowResizeColumns]="true"
+      [showColumnsMenu]="true"
+    >
+    </emerald-datatable-v2>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmeraldDesignSystemV2Module } from '@emerald-angular/design-system-v2';
+import { EmeraldDatatableV2Module } from '@emerald-angular/datatable-v2';
 
 interface User {
   id: number;
@@ -14,7 +15,7 @@ interface User {
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule, EmeraldDesignSystemV2Module],
+  imports: [CommonModule, EmeraldDesignSystemV2Module, EmeraldDatatableV2Module],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
@@ -97,4 +98,54 @@ export class UsersComponent {
   totalUsers = this.users.length;
   activeUsers = this.users.filter((u) => u.status === 'Active').length;
   inactiveUsers = this.users.filter((u) => u.status === 'Inactive').length;
+
+  columnDefs = [
+    {
+      field: 'id',
+      headerName: 'ID',
+      dataType: 'number',
+      width: 80,
+    },
+    {
+      field: 'name',
+      headerName: 'Name',
+      dataType: 'text',
+      width: 180,
+    },
+    {
+      field: 'email',
+      headerName: 'Email',
+      dataType: 'text',
+      width: 250,
+    },
+    {
+      field: 'role',
+      headerName: 'Role',
+      dataType: 'text',
+      width: 150,
+    },
+    {
+      field: 'department',
+      headerName: 'Department',
+      dataType: 'text',
+      width: 180,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      dataType: 'text',
+      width: 120,
+    },
+    {
+      field: 'joinDate',
+      headerName: 'Join Date',
+      dataType: 'date',
+      width: 130,
+    },
+  ];
+
+  paginationParams = {
+    pageSize: 10,
+    pageSizeOptions: [5, 10, 20, 50],
+  };
 }
