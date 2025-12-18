@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { EmeraldDesignSystemV2Module } from '@emerald-angular/design-system-v2';
 
 @Component({
@@ -9,6 +9,8 @@ import { EmeraldDesignSystemV2Module } from '@emerald-angular/design-system-v2';
   styleUrl: './app.scss',
 })
 export class App {
+  constructor(private router: Router) {}
+
   protected readonly title = signal('cbre_angular_eds');
   navItems = [
     { label: 'Home', link: '/', icon: 'home' },
@@ -39,4 +41,10 @@ export class App {
     },
     { label: 'About2', link: '/about', icon: 'info' },
   ];
+
+  onNavigationClick(event: any) {
+    if (event?.link && !event.link.startsWith('http') && !event.link.startsWith('mailto:') && !event.link.startsWith('tel:')) {
+      this.router.navigate([event.link]);
+    }
+  }
 }
