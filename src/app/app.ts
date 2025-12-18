@@ -45,8 +45,8 @@ export class App {
 
   onNavigationClick(event: any) {
     console.log('onNavigationClick: ', event);
-    if (event?.link && !event.link.startsWith('http') && !event.link.startsWith('mailto:') && !event.link.startsWith('tel:')) {
-      this.router.navigate([event.link]);
+    if (event?.triggerItem?.link === '/users') {
+      this.router.navigation([event?.triggerItem?.link]);
     }
   }
 }
