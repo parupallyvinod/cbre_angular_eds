@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { EmeraldDesignSystemV2Module } from '@emerald-angular/design-system-v2';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EmeraldDesignSystemV2Module],
+  imports: [RouterOutlet, EmeraldDesignSystemV2Module, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
