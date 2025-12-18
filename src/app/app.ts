@@ -1,17 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Router, RouterOutlet } from '@angular/router';
 import { EmeraldDesignSystemV2Module } from '@emerald-angular/design-system-v2';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EmeraldDesignSystemV2Module],
+  imports: [RouterOutlet, EmeraldDesignSystemV2Module, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
+  constructor(private router: Router) {}
+
   protected readonly title = signal('cbre_angular_eds');
   navItems = [
     { label: 'Home', link: '/', icon: 'home' },
+    { label: 'Users', link: '/users', icon: 'people' },
     { label: 'About', link: '/about', icon: 'info' },
     {
       label: 'Contact',
@@ -38,4 +42,13 @@ export class App {
     },
     { label: 'About2', link: '/about', icon: 'info' },
   ];
+
+  onNavigationClick(event: any) {
+    console.log('onNavigationClick: ', event);
+    if (event?.triggerItem?.link === '/users') {
+      this.router.navigate([event?.triggerItem?.link]);
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 }

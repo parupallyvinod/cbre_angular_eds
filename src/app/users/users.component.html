@@ -1,0 +1,56 @@
+<div class="users-dashboard">
+  <div class="dashboard-header">
+    <h1 class="page-title">User Dashboard</h1>
+    <p class="page-description">Manage and view all users in the system</p>
+  </div>
+
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="stat-icon total">
+        <span class="material-icons">people</span>
+      </div>
+      <div class="stat-content">
+        <div class="stat-value">{{ totalUsers }}</div>
+        <div class="stat-label">Total Users</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon active">
+        <span class="material-icons">check_circle</span>
+      </div>
+      <div class="stat-content">
+        <div class="stat-value">{{ activeUsers }}</div>
+        <div class="stat-label">Active Users</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon inactive">
+        <span class="material-icons">cancel</span>
+      </div>
+      <div class="stat-content">
+        <div class="stat-value">{{ inactiveUsers }}</div>
+        <div class="stat-label">Inactive Users</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-header">
+      <h2 class="table-title">All Users</h2>
+      <button class="add-user-btn">
+        <span class="material-icons">add</span>
+        Add User
+      </button>
+    </div>
+
+    <emerald-datatable-v2
+      [columnDefs]="columnDefs"
+      [rowData]="users"
+      [paginationParams]="paginationParams"
+      [allowResizeColumns]="true"
+    >
+    </emerald-datatable-v2>
+  </div>
+</div>
